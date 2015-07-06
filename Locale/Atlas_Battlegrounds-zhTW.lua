@@ -1,4 +1,4 @@
-﻿-- $Id: Atlas_Battlegrounds-zhTW.lua 2276 2015-03-01 08:21:37Z arithmandar $
+﻿-- $Id$
 --[[
 
 	Atlas, a World of Warcraft instance map browser
