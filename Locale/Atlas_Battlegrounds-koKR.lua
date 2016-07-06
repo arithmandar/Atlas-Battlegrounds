@@ -25,8 +25,8 @@
 --]]
 
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas_Battlegrounds", "frFR", false);
+local L = AceLocale:NewLocale("Atlas_Battlegrounds", "koKR", false);
 
 if L then
---@localization(locale="frFR", format="lua_additive_table")@
+--@localization(locale="koKR", format="lua_additive_table")@
 end

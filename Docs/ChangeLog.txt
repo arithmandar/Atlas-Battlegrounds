@@ -8,6 +8,12 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.32.02 (Jul. 06, 2016)
+------------------------
+- Translation now being managed on curseforge: http://wow.curseforge.com/addons/atlas-battlegrounds/localization/
+- Added itIT, ptBR, and koKR translation files (placeholder until we get any translation added)
+
+
 v1.32.01 (May 18, 2016)
 ------------------------
 - Added maps' additional tooltips
