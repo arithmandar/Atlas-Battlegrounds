@@ -34,6 +34,10 @@
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
 local L = AceLocale:NewLocale("Atlas_Battlegrounds", "esMX", false);
 
+-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-- Translation now being managed on curseforge: http://wow.curseforge.com/addons/atlas-battlegrounds/localization/
+-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 if L then
 --@localization(locale="esMX", format="lua_additive_table")@
 end
