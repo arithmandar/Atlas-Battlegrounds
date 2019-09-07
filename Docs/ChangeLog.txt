@@ -8,10 +8,6 @@ Copyright 2011 ~ 2019 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
-v1.45.00.11302.00 (Sep. 06, 2019)
-------------------------
-- Classic WoW support
-
 v1.45.00 (Sep. 04, 2019)
 ------------------------
 - ToC update to support WoW 8.2.0
