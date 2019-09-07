@@ -77,6 +77,7 @@ if L then
 	L["Stormpike Aid Station"] = "Stormpike Aid Station";
 	L["Ichman's Beacon"] = "Ichman's Beacon";
 	L["Mulverick's Beacon"] = "Mulverick's Beacon";
+	L["Steamsaw"] = "Steamsaw";
 
 	--Alterac Valley (South)
 	L["Drek'Thar <Frostwolf General>"] = "Drek'Thar <Frostwolf General>";
