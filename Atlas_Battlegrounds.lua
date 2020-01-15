@@ -157,7 +157,7 @@ if (WoWClassic) then
 		ArathiBasin = {
 			ZoneName = { BZ["Arathi Basin"] },
 			Location = { BZ["Arathi Highlands"] },
-			LevelRange = "200-60",
+			LevelRange = "20-60",
 			PlayerLimit = { 15 },
 			Acronym = L["AB"],
 			WorldMapID = 93,
