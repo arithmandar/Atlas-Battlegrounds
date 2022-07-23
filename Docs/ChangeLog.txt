@@ -8,6 +8,17 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.51.00 (Jul. 23, 2022)
+------------------------
+- Retail ToC update to support WoW 9.2.5
+- Classic ToC update to support WoW 1.14.3
+- Added support for Wrath of the Lich King Classic (WoW 3.4.0)
+- Added battleground / PvP maps to BCC:
+  - Halaa PvP
+  - Hellfire Fortifications
+  - Terokkar Forest - Spirit Towers
+  - Zangarmarsh - Twin Spire Ruins
+
 v1.50.01 (Mar. 23, 2022)
 ------------------------
 - BCC ToC update to support WoW 2.5.4
