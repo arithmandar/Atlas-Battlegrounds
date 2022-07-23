@@ -296,7 +296,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ GREN..INDENT..BULLET..L["Coreiel <Blade Merchant>"] },
 			{ GREN..INDENT..BULLET..L["Embelar <Food & Drink>"] },
 			{ GREN.."2) "..L["Wyvern Camp"], 10002 },
-		},
+		}
 		db.maps["HellfirePeninsulaPvP"] = {
 			ZoneName = { BZ["Hellfire Peninsula"]..ALC["Hyphen"]..L["Hellfire Fortifications"] },
 			Location = { BZ["Hellfire Peninsula"] },
@@ -307,7 +307,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ GREN.."1) "..BZ["The Stadium"], 10001 },
 			{ GREN.."2) "..BZ["The Overlook"], 10002 },
 			{ GREN.."3) "..BZ["Broken Hill"], 10003 },
-		},
+		}
 		db.maps["TerokkarForestPvP"] = {
 			ZoneName = { BZ["Terokkar Forest"]..ALC["Hyphen"]..L["Spirit Towers"] },
 			Location = { BZ["The Bone Wastes"]..ALC["Comma"]..BZ["Terokkar Forest"] },
@@ -316,7 +316,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			WorldMapID = 108,
 			{ ORNG..PVP..ALC["Colon"]..BZ["Auchindoun"].." "..L["Spirit Towers"] },
 			{ GREN.."1) "..L["Spirit Towers"], 10001 },
-		},
+		}
 		db.maps["ZangarmarshPvP"] = {
 			ZoneName = { BZ["Zangarmarsh"]..ALC["Hyphen"]..BZ["Twin Spire Ruins"] },
 			Location = { BZ["Zangarmarsh"] },
@@ -329,7 +329,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ GREN.."1') "..L["Horde Field Scout"], 10003 },
 			{ GREN.."2') "..L["Alliance Field Scout"], 10004 },
 			{ ORNG.."1) "..L["Twinspire Graveyard"], 10005 },
-		},
+		}
 		db.coords["EyeOfTheStorm"] = {
 			{ "A", 10001, 238, 82 }, -- Entrance
 			{ "B", 10002, 266, 408 }, -- Entrance
@@ -349,26 +349,26 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ "2", 10002, 215, 367 }, -- Wyvern Camp
 			{ "2", 10002, 323, 164 }, -- Wyvern Camp
 			{ "2", 10002, 358, 298 }, -- Wyvern Camp
-		},
+		}
 		db.coords["HellfirePeninsulaPvP"] = {
 			{ "1", 10001, 181, 228 }, -- The Stadium
 			{ "2", 10002, 295, 183 }, -- The Overlook
 			{ "3", 10003, 302, 312 }, -- Broken Hill
-		},
+		}
 		db.coords["TerokkarForestPvP"] = {
 			{ "1", 10001, 56, 104 }, -- Spirit Towers
 			{ "1", 10001, 314, 42 }, -- Spirit Towers
 			{ "1", 10001, 482, 148 }, -- Spirit Towers
 			{ "1", 10001, 434, 355 }, -- Spirit Towers
 			{ "1", 10001, 261, 453 }, -- Spirit Towers
-		},
+		}
 		db.coords["ZangarmarshPvP"] = {
 			{ "1", 10001, 184, 208 }, -- West Beacon
 			{ "2", 10002, 321, 214 }, -- East Beacon
 			{ "1'", 10003, 56, 233 }, -- Horde Field Scout
 			{ "2'", 10004, 491, 199 }, -- Alliance Field Scout
 			{ "1", 10005, 253, 245 }, -- Twinspire Graveyard
-		},
+		}
 	end
 	if (WoWWOTLKC) then
 		db.maps["IsleOfConquest"] = {
@@ -392,7 +392,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ ORNG.."3) "..L["Alliance Graveyard"], 10010 },
 			{ "" },
 			{ _RED..L["Gates are marked with red bars."] },
-		},
+		}
 		db.maps["StrandOfTheAncients"] = {
 			ZoneName = { BZ["Strand of the Ancients"] },
 			Location = { BZ["Dragonblight"] },
@@ -408,7 +408,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ GREN.."1) "..L["Battleground Demolisher"], 10005 },
 			{ GREN.."2) "..L["Graveyard Flag"], 10006 },
 			{ ORNG.."1) "..L["Resurrection Point"], 10007 },
-		},
+		}
 		db.maps["WintergraspPvP"] = {
 			ZoneName = { BZ["Wintergrasp"] },
 			Location = { BZ["Wintergrasp"] },
@@ -440,7 +440,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ ORNG.."3) "..L["Broken Temple Graveyard"], 10014 },
 			{ ORNG.."4) "..L["Southeast Graveyard"], 10015 },
 			{ ORNG.."5) "..L["Southwest Graveyard"], 10016 },
-		},
+		}
 		db.coords["IsleOfConquest"] = {
 			{ "A", 10001, 239, 90 }, -- Start
 			{ "B", 10002, 260, 428 }, -- Start
@@ -456,7 +456,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ "1", 10008, 352, 254 }, -- Contested Graveyards
 			{ "2", 10009, 390, 141 }, -- Horde Graveyard
 			{ "3", 10010, 94, 374 }, -- Alliance Graveyard
-		},
+		}
 		db.coords["StrandOfTheAncients"] = {
 			{ "A", 10001, 202, 44 }, -- Start
 			{ "A", 10001, 264, 53 }, -- Start
@@ -479,7 +479,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ "1", 10007, 354, 158 }, -- Resurrection Point
 			{ "1", 10007, 197, 291 }, -- Resurrection Point
 			{ "1", 10007, 315, 361 }, -- Resurrection Point
-		},
+		}
 		db.coords["WintergraspPvP"] = {
 			{ "A", 10001, 237, 101, 508, 98, "Blue" }, -- Wintergrasp Fortress
 			{ "B", 10002, 414, 179, 794, 233, "Blue" }, -- Valiance Landing Camp
@@ -497,7 +497,7 @@ if (WoWClassicEra or WoWClassicTBC or WoWWOTLKC) then
 			{ "3", 10014,  75, 192, 243, 251, "Orange" }, -- Broken Temple Graveyard
 			{ "4", 10015, 350, 385, 695, 557, "Orange" }, -- Southeast Graveyard
 			{ "5", 10016, 131, 385, 323, 561, "Orange" }, -- Southwest Graveyard
-		},
+		}
 	end
 else
 	db.maps = {
