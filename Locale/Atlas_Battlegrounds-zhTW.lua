@@ -1,38 +1,9 @@
-﻿-- $Id$
---[[
-
-	Atlas, a World of Warcraft instance map browser
-	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert at gmail dot com>
-	Copyright 2010 - Lothaer <lothayer at gmail dot com>, Atlas Team
-	Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
-
-	This file is part of Atlas.
-
-	Atlas is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	Atlas is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with Atlas; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
---]]
+-- Atlas Battlegrounds Traditional Chinese Localization
 
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
 local L = AceLocale:NewLocale("Atlas_Battlegrounds", "zhTW", false);
 
--- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- Translation now being managed on curseforge: http://wow.curseforge.com/addons/atlas-battlegrounds/localization/
--- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 if L then
---@do-not-package@
 	--Common
 	L["Battleground Maps"] = "戰場地圖";
 	L["Rescued"] = "營救";
@@ -42,7 +13,7 @@ if L then
 	L["AV"] = "AV/奧山"; -- Alterac Valley
 	L["AB"] = "AB/阿拉希"; -- Arathi Basin
 	L["EotS"] = "EotS/暴風";
-	L["IoC"] = "IoC"; -- Isle of Conquest 征服之島
+	L["IoC"] = "IoC"; -- Isle of Conquest
 	L["SotA"] = "SotA/遠祖"; -- Strand of the Ancients
 	L["WSG"] = "WSG/戰歌"; -- Warsong Gulch
 
@@ -145,8 +116,8 @@ if L then
 	L["The Workshop"] = "工坊";
 	L["The Hangar"] = "機棚";
 	L["The Quarry"] = "礦場";
-	L["Contested Graveyards"] = "爭奪中的墓地";
-	L["Horde Graveyard"] = "部落墓地";
+	L["Contested Graveyards"] = "爭奪中的墓地";--omitted from Gilneas
+	L["Horde Graveyard"] = "部落墓地";--omitted from Gilneas
 	L["Alliance Graveyard"] = "聯盟墓地";
 
 	--Strand of the Ancients
@@ -199,6 +170,18 @@ if L then
 
 	-- Deepwind Gorge
 	L["Center Mine"] = "中央礦坑";
---@end-do-not-package@
---@localization(locale="zhTW", format="lua_additive_table")@
+	
+    L["Shipwreck"] = "沉船"
+    L["Bonfire"] = "營火"
+    L["Tide Pools"] = "潮池"
+    L["Temple"] = "神殿"
+    L["Tar Pits"] = "焦油坑"
+    L["Plunge"] = "深潭"
+    L["Ridge"] = "山脊"
+    L["Overlook"] = "瞭望台"
+    L["Crash Site"] = "墜毀地點"
+    L["Waterfall"] = "瀑布"
+    L["Ruins"] = "廢墟"
+    L["Tower"] = "哨塔"
+
 end

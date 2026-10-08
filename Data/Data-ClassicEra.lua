@@ -1,64 +1,41 @@
--- $Id$
---[[
-
-	Atlas, a World of Warcraft instance map browser
-	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert at gmail dot com>
-	Copyright 2010 - Lothaer <lothayer at gmail dot com>, Atlas Team
-	Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
-
-	This file is part of Atlas.
-
-	Atlas is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	Atlas is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with Atlas; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
---]]
+-----------------------------------------------------------------------
+-- Data for Classic Era
+-----------------------------------------------------------------------
 local _G = getfenv(0)
-local select = select
-local GetBuildInfo = _G.GetBuildInfo
-
--- ----------------------------------------------------------------------------
--- AddOn namespace.
--- ----------------------------------------------------------------------------
-local FOLDER_NAME, private = ...
-
+local _, private = ...
 local LibStub = _G.LibStub
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
+
+local Client = Atlas.Client
+
+if not Client.isClassicEra then
+	return
+end
 
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 
-local db = {}
-private.db = db
+local data = {}
+private.data = data
 
-local BLUE = "|cff6666ff"
-local GREN = "|cff66cc33"
-local LBLU = "|cff33cccc"
-local _RED = "|cffcc3333"
-local ORNG = "|cffcc9933"
-local PINK = "|ccfcc33cc"
-local PURP = "|cff9900ff"
-local WHIT = "|cffffffff"
-local YLOW = "|cffcccc33"
-local INDENT = "      "
-local BULLET = " - "
+local constants = private.constants
+local labelcolors = constants.colors.labels
+local BLUE = labelcolors.BLUE
+local GREN = labelcolors.GREN
+local LBLU = labelcolors.LBLU
+local _RED = labelcolors._RED
+local ORNG = labelcolors.ORNG
+local PINK = labelcolors.PINK
+local PURP = labelcolors.PURP
+local WHIT = labelcolors.WHIT
+local YLOW = labelcolors.YLOW
+local INDENT = labelcolors.INDENT
+local BULLET = labelcolors.BULLET
 
-db.category = L[private.category]
 
-
-db.maps = {
+data.maps = {
 	AlteracValleyNorth = {
 		ZoneName = { BZ["Alterac Valley"]..ALC["L-Parenthesis"]..ALC["North"]..ALC["Comma"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 		Location = { BZ["Alterac Mountains"] },
@@ -181,78 +158,9 @@ db.maps = {
 		{ BLUE.."A) "..BZ["Silverwing Hold"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10001 },
 		{ BLUE.."B) "..BZ["Warsong Lumber Mill"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10002 },
 	},
-	EyeOfTheStorm = {
-		ZoneName = { BZ["Eye of the Storm"] },
-		Location = { BZ["Netherstorm"] },
-		LevelRange = "15-120"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
-		PlayerLimit = {15},
-		Acronym = L["EotS"],
-		WorldMapID = 112,
-		{ BLUE.."A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10001 },
-		{ BLUE.."B) "..ALC["Entrance"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10002 },
-		{ _RED.."1) "..L["Flag"], 10003 },
-		{ GREN.."1) "..BZ["Mage Tower"], 10004 },
-		{ GREN.."2) "..BZ["Draenei Ruins"], 10005 },
-		{ GREN.."3) "..BZ["Fel Reaver Ruins"], 10006 },
-		{ GREN.."4) "..BZ["Blood Elf Tower"], 10007 },
-		{ ORNG.."1) "..ALC["Graveyard"], 10008 },
-	},
-	HalaaPvP = {
-		ZoneName = { BZ["Nagrand"]..ALC["Hyphen"]..BZ["Halaa"] },
-		Location = { BZ["Nagrand"] },
-		LevelRange = "64-85",
-		MinLevel = "64",
-		WorldMapID = 107,
-		{ ORNG..PVP..ALC["Colon"]..BZ["Halaa"] },
-		{ GREN.."1) "..BZ["Halaa"], 10001 },
-		{ GREN..INDENT..FACTION_ALLIANCE },
-		{ GREN..INDENT..BULLET..L["Quartermaster Davian Vaclav"] },
-		{ GREN..INDENT..BULLET..L["Chief Researcher Kartos"] },
-		{ GREN..INDENT..BULLET..L["Aldraan <Blade Merchant>"] },
-		{ GREN..INDENT..BULLET..L["Cendrii <Food & Drink>"] },
-		{ GREN..INDENT..FACTION_HORDE },
-		{ GREN..INDENT..BULLET..L["Quartermaster Jaffrey Noreliqe"] },
-		{ GREN..INDENT..BULLET..L["Chief Researcher Amereldine"] },
-		{ GREN..INDENT..BULLET..L["Coreiel <Blade Merchant>"] },
-		{ GREN..INDENT..BULLET..L["Embelar <Food & Drink>"] },
-		{ GREN.."2) "..L["Wyvern Camp"], 10002 },
-	},
-	HellfirePeninsulaPvP = {
-		ZoneName = { BZ["Hellfire Peninsula"]..ALC["Hyphen"]..L["Hellfire Fortifications"] },
-		Location = { BZ["Hellfire Peninsula"] },
-		LevelRange = "58-85",
-		MinLevel = "58",
-		WorldMapID = 100,
-		{ ORNG..PVP..ALC["Colon"]..L["Hellfire Fortifications"] },
-		{ GREN.."1) "..BZ["The Stadium"], 10001 },
-		{ GREN.."2) "..BZ["The Overlook"], 10002 },
-		{ GREN.."3) "..BZ["Broken Hill"], 10003 },
-	},
-	TerokkarForestPvP = {
-		ZoneName = { BZ["Terokkar Forest"]..ALC["Hyphen"]..L["Spirit Towers"] },
-		Location = { BZ["The Bone Wastes"]..ALC["Comma"]..BZ["Terokkar Forest"] },
-		LevelRange = "62-85",
-		MinLevel = "62",
-		WorldMapID = 108,
-		{ ORNG..PVP..ALC["Colon"]..BZ["Auchindoun"].." "..L["Spirit Towers"] },
-		{ GREN.."1) "..L["Spirit Towers"], 10001 },
-	},
-	ZangarmarshPvP = {
-		ZoneName = { BZ["Zangarmarsh"]..ALC["Hyphen"]..BZ["Twin Spire Ruins"] },
-		Location = { BZ["Zangarmarsh"] },
-		LevelRange = "60-85",
-		MinLevel = "60",
-		WorldMapID = 102,
-		{ ORNG..PVP..ALC["Colon"]..BZ["Twin Spire Ruins"] },
-		{ GREN.."1) "..L["West Beacon"], 10001 },
-		{ GREN.."2) "..L["East Beacon"], 10002 },
-		{ GREN.."1') "..L["Horde Field Scout"], 10003 },
-		{ GREN.."2') "..L["Alliance Field Scout"], 10004 },
-		{ ORNG.."1) "..L["Twinspire Graveyard"], 10005 },
-	},
 }
 
-db.coords = {
+data.coords = {
 	AlteracValleyNorth = {
 		{  "A", 10001, 368, 25 }, -- Entrance
 		{  "B", 10002, 166, 65 }, -- Dun Baldar
@@ -310,45 +218,4 @@ db.coords = {
 		{ "A", 10001, 238, 96 }, -- Silverwing Hold
 		{ "B", 10002, 256, 365 }, -- Warsong Lumber Mill
 	},
-	EyeOfTheStorm = {
-		{ "A", 10001, 238, 82 }, -- Entrance
-		{ "B", 10002, 266, 408 }, -- Entrance
-		{ "1", 10003, 251, 247 }, -- Flag
-		{ "1", 10004, 163, 196 }, -- Mage Tower
-		{ "2", 10005, 347, 204 }, -- Draenei Ruins
-		{ "3", 10006, 165, 304 }, -- Fel Reaver Ruins
-		{ "4", 10007, 341, 301 }, -- Blood Elf Tower
-		{ "1", 10008, 200, 162 }, -- Graveyard
-		{ "1", 10008, 304, 161 }, -- Graveyard
-		{ "1", 10008, 201, 319 }, -- Graveyard
-		{ "1", 10008, 299, 316 }, -- Graveyard
-	},
-	HalaaPvP = {
-		{ "1", 10001, 252, 247 }, -- Halaa
-		{ "2", 10002, 184, 207 }, -- Wyvern Camp
-		{ "2", 10002, 215, 367 }, -- Wyvern Camp
-		{ "2", 10002, 323, 164 }, -- Wyvern Camp
-		{ "2", 10002, 358, 298 }, -- Wyvern Camp
-	},
-	HellfirePeninsulaPvP = {
-		{ "1", 10001, 181, 228 }, -- The Stadium
-		{ "2", 10002, 295, 183 }, -- The Overlook
-		{ "3", 10003, 302, 312 }, -- Broken Hill
-	},
-	TerokkarForestPvP = {
-		{ "1", 10001, 56, 104 }, -- Spirit Towers
-		{ "1", 10001, 314, 42 }, -- Spirit Towers
-		{ "1", 10001, 482, 148 }, -- Spirit Towers
-		{ "1", 10001, 434, 355 }, -- Spirit Towers
-		{ "1", 10001, 261, 453 }, -- Spirit Towers
-	},
-	ZangarmarshPvP = {
-		{ "1", 10001, 184, 208 }, -- West Beacon
-		{ "2", 10002, 321, 214 }, -- East Beacon
-		{ "1'", 10003, 56, 233 }, -- Horde Field Scout
-		{ "2'", 10004, 491, 199 }, -- Alliance Field Scout
-		{ "1", 10005, 253, 245 }, -- Twinspire Graveyard
-	},
 }
-
-Atlas:RegisterPlugin(private.addon_name, private.db.category, private.db.maps, private.db.coords)

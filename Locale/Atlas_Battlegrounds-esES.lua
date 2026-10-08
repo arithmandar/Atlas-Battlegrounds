@@ -1,28 +1,4 @@
-﻿-- $Id$
---[[
-
-	Atlas, a World of Warcraft instance map browser
-	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert at gmail dot com>
-	Copyright 2010 - Lothaer <lothayer at gmail dot com>, Atlas Team
-	Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
-
-	This file is part of Atlas.
-
-	Atlas is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	Atlas is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with Atlas; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
---]]
+-- Atlas Battlegrounds Spanish Localization
 
 -- Datos de Atlas (Español)
 -- Traducido por --> maqjav|Marosth de Tyrande<--
@@ -34,12 +10,7 @@
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
 local L = AceLocale:NewLocale("Atlas_Battlegrounds", "esES", false);
 
--- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- Translation now being managed on curseforge: http://wow.curseforge.com/addons/atlas-battlegrounds/localization/
--- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 if L then
---@do-not-package@
 	--Common
 	L["Battleground Maps"] = "Mapas de Campos de Batalla";
 	L["Rescued"] = "Rescate";
@@ -61,7 +32,7 @@ if L then
 	L["Dun Baldar South Bunker"] = "Búnker Sur de Dun Baldar";
 	L["Gaelden Hammersmith <Stormpike Supply Officer>"] = "Gaelden Martillero <Oficial de suministros Pico Tormenta>";
 	L["Stormpike Banner"] = "Estandarte de Pico Tormenta";
-	L["Stormpike Lumber Yard"] = "Stormpike Lumber Yard"; --FALTA
+	L["Stormpike Lumber Yard"] = "Stormpike Lumber Yard";
 	L["Wing Commander Jeztor"] = "Comandante del aire Jeztor";--omitted from AVS
 	L["Wing Commander Guse"] = "Comandante del aire Guse";--omitted from AVS
 	L["Captain Balinda Stonehearth <Stormpike Captain>"] = "Capitana Balinda Piedrahogar <Capitana Pico Tormenta>";
@@ -112,7 +83,7 @@ if L then
 	--Warsong Gulch
 
 	-- The Silithyst Must Flow
-	L["The Silithyst Must Flow"] = "El silitista debe fluir"; --check
+	L["The Silithyst Must Flow"] = "El silitista debe fluir";
 	L["Alliance's Camp"] = "Campamento de la Alianza";
 	L["Horde's Camp"] = "Campamento de la Horda";
 
@@ -141,7 +112,7 @@ if L then
 	L["East Beacon"] = "Baliza Oriental";
 	L["Horde Field Scout"] = "Explorador de campo de la Horda";
 	L["Alliance Field Scout"] = "Explorador de campo de la Alianza";
-	L["Twinspire Graveyard"] = "Cementerio de las Agujas Gemelas"; --Check
+	L["Twinspire Graveyard"] = "Cementerio de las Agujas Gemelas";
 
 	--Isle of Conquest
 	L["Gates are marked with red bars."] = "Las puertas están marcadas con barras rojas.";
@@ -152,8 +123,8 @@ if L then
 	L["The Workshop"] = "El Taller de Asedio";
 	L["The Hangar"] = "El Hangar";
 	L["The Quarry"] = "La Cantera";
-	L["Contested Graveyards"] = "Cementerios de disputa"; --omitted from Gilneas
-	L["Horde Graveyard"] = "Cementerio de la Horda"; --omitted from Gilneas
+	L["Contested Graveyards"] = "Cementerios de disputa";--omitted from Gilneas
+	L["Horde Graveyard"] = "Cementerio de la Horda";--omitted from Gilneas
 	L["Alliance Graveyard"] = "Cementerio de la Alianza";
 
 	--Strand of the Ancients
@@ -167,8 +138,8 @@ if L then
 	L["Resurrection Point"] = "Punto de Resurrección";
 
 	-- Wintergrasp
-	L["Fortress Vihecal Workshop (E)"] = "Taller Chispa Oriental Fortaleza"; --Check
-	L["Fortress Vihecal Workshop (W)"] = "Taller Chispa Occidental Fortaleza"; --Check
+	L["Fortress Vihecal Workshop (E)"] = "Taller Chispa Oriental Fortaleza";
+	L["Fortress Vihecal Workshop (W)"] = "Taller Chispa Occidental Fortaleza";
 	L["Sunken Ring Vihecal Workshop"] = "El Anillo Sumergido";
 	L["Broken Temple Vihecal Workshop"] = "El Templo Quebrado";
 	L["Eastspark Vihecale Workshop"] = "Taller Chispa Oriental";
@@ -176,8 +147,8 @@ if L then
 	L["Wintergrasp Graveyard"] = "Cementerio Conquista del Invierno";
 	L["Sunken Ring Graveyard"] = "Cementerio del Anillo Sumergido";
 	L["Broken Temple Graveyard"] = "Cementerio del Templo Quebrado";
-	L["Southeast Graveyard"] = "Cementerio sureste"; 
-	L["Southwest Graveyard"] = "Cementerio suroeste"; 
+	L["Southeast Graveyard"] = "Cementerio sureste";
+	L["Southwest Graveyard"] = "Cementerio suroeste";
 
 	-- The Battle for Gilneas
 
@@ -193,8 +164,8 @@ if L then
 	L["Staff Sergeant Lazgar <Hellscream's Reach>"] = "Sargento de segunda Lazgar <Mando Grito Infernal>";
 
 	-- Twin Peaks
-	L["Wildhammer Longhouse"] = "Casa Martillo Salvaje"; --Check
-	L["Dragonmaw Clan Compound"] = "Compuesto Clan Faucedraco"; --Check
+	L["Wildhammer Longhouse"] = "Casa Martillo Salvaje";
+	L["Dragonmaw Clan Compound"] = "Compuesto Clan Faucedraco";
 
 	-- Silvershard Mines
 	L["Mine Cart Spawn Point"] = "Mine Cart Spawn Point";
@@ -206,6 +177,18 @@ if L then
 
 	-- Deepwind Gorge
 	L["Center Mine"] = "Mina del centro";
---@end-do-not-package@
---@localization(locale="esES", format="lua_additive_table")@
+	
+	-- L["Shipwreck"] = "Shipwreck"
+	-- L["Bonfire"] = "Bonfire"
+	-- L["Tide Pools"] = "Tide Pools"
+	-- L["Temple"] = "Temple"
+	-- L["Tar Pits"] = "Tar Pits"
+	-- L["Plunge"] = "Plunge"
+	-- L["Ridge"] = "Ridge"
+	-- L["Overlook"] = "Overlook"
+	-- L["Crash Site"] = "Crash Site"
+	-- L["Waterfall"] = "Waterfall"
+	-- L["Ruins"] = "Ruins"
+	-- L["Tower"] = "Tower"
+
 end
