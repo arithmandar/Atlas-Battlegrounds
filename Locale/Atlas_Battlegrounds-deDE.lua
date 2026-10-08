@@ -1,48 +1,18 @@
-﻿-- $Id$
---[[
-
-	Atlas, a World of Warcraft instance map browser
-	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert at gmail dot com>
-	Copyright 2010 - Lothaer <lothayer at gmail dot com>, Atlas Team
-	Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
-
-	This file is part of Atlas.
-
-	Atlas is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	Atlas is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with Atlas; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
---]]
-
+-- Atlas Battlegrounds German Localization
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
 local L = AceLocale:NewLocale("Atlas_Battlegrounds", "deDE", false);
 
--- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- Translation now being managed on curseforge: http://wow.curseforge.com/addons/atlas-battlegrounds/localization/
--- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 if L then
---@do-not-package@
 	--Common
 	L["Battleground Maps"] = "Schlachtfeldkarten";
 	L["Rescued"] = "Gerettet";
-	L["Span of 5"] = "5er Schritte";
+	L["Span of 5"] = "5er Schritte"; -- Blizzard's span to put players with similar level range into a BG (10-14, 15-29)
 
 	--Places
 	L["AV"] = "AV"; -- Alterac Valley
 	L["AB"] = "AB"; -- Arathi Basin
 	L["EotS"] = "Auge";
-	L["IoC"] = "Insel";-- Isle of Conquest
+	L["IoC"] = "Insel"; -- Isle of Conquest
 	L["SotA"] = "SdU"; -- Strand of the Ancients
 	L["WSG"] = "WS"; -- Warsong Gulch
 
@@ -50,13 +20,13 @@ if L then
 	L["Vanndar Stormpike <Stormpike General>"] = "Vanndar Sturmlanze <General der Sturmlanzen>";
 	L["Prospector Stonehewer"] = "Ausgrabungsleiter Steinhauer";
 	L["Dun Baldar North Bunker"] = "Nordbunker von Dun Baldar";
-	L["Wing Commander Mulverick"] = "Schwadronskommandant Mulverick";
+	L["Wing Commander Mulverick"] = "Schwadronskommandant Mulverick";--omitted from AVS
 	L["Dun Baldar South Bunker"] = "Südbunker von Dun Baldar";
 	L["Gaelden Hammersmith <Stormpike Supply Officer>"] = "Gaelden Hammerschmied <Versorgungsoffizier der Sturmlanzen>";
 	L["Stormpike Banner"] = "Banner der Sturmlanzen";
 	L["Stormpike Lumber Yard"] = "Sägewerk der Sturmlanzen";
-	L["Wing Commander Jeztor"] = "Schwadronskommandant Jeztor";
-	L["Wing Commander Guse"] = "Schwadronskommandant Guse";
+	L["Wing Commander Jeztor"] = "Schwadronskommandant Jeztor";--omitted from AVS
+	L["Wing Commander Guse"] = "Schwadronskommandant Guse";--omitted from AVS
 	L["Captain Balinda Stonehearth <Stormpike Captain>"] = "Hauptmann Balinda Steinbruch <Hauptmann der Sturmlanzen>";
 	L["Western Crater"] = "Westlicher Krater";
 	L["Vipore's Beacon"] = "Vipores Signal";
@@ -74,9 +44,9 @@ if L then
 	L["Stormpike Quartermaster"] = "Rüstmeister der Sturmlanzen";
 	L["Jonivera Farmountain <General Goods>"] = "Jonivera Bergweh <Gemischtwaren>";
 	L["Brogus Thunderbrew <Food & Drink>"] = "Brogus Donnerbräu <Essen & Getränke>";
-	L["Wing Commander Ichman"] = "Schwadronskommandant Ichman";
-	L["Wing Commander Slidore"] = "Schwadronskommandant Erzrutsch";
-	L["Wing Commander Vipore"] = "Schwadronskommandant Vipore";
+	L["Wing Commander Ichman"] = "Schwadronskommandant Ichman";--omitted from AVS
+	L["Wing Commander Slidore"] = "Schwadronskommandant Erzrutsch";--omitted from AVS
+	L["Wing Commander Vipore"] = "Schwadronskommandant Vipore";--omitted from AVS
 	L["Stormpike Ram Rider Commander"] = "Kommandant der Sturmlanzenwidderreiter";
 	L["Ivus the Forest Lord"] = "Ivus der Waldfürst";
 	L["Stormpike Aid Station"] = "Lazarett der Sturmlanzen";
@@ -137,17 +107,17 @@ if L then
 	L["Twinspire Graveyard"] = "Friedhof der Zwillingsspitze";
 
 	--Isle of Conquest
-    	L["Gates are marked with red bars."] = "Tore sind mit roten Balken makiert.";
-    	L["Overlord Agmar"] = "Oberanführer Agmar";
-    	L["High Commander Halford Wyrmbane <7th Legion>"] = "Hochkommandant Halford Wyrmbann <7. Legion>";
-    	L["The Refinery"] = "Die Raffinerie";
-    	L["The Docks"] = "Die Docks";
-    	L["The Workshop"] = "Die Belagerungswerkstatt";
-    	L["The Hangar"] = "Der Hangar";
-    	L["The Quarry"] = "Der Steinbruch";
-    	L["Contested Graveyards"] = "Umkämpfte Friedhöfe";
-    	L["Horde Graveyard"] = "Horde Friedhof";
-    	L["Alliance Graveyard"] = "Allianz Friedhof";
+	L["Gates are marked with red bars."] = "Tore sind mit roten Balken makiert.";
+	L["Overlord Agmar"] = "Oberanführer Agmar";
+	L["High Commander Halford Wyrmbane <7th Legion>"] = "Hochkommandant Halford Wyrmbann <7. Legion>";
+	L["The Refinery"] = "Die Raffinerie";
+	L["The Docks"] = "Die Docks";
+	L["The Workshop"] = "Die Belagerungswerkstatt";
+	L["The Hangar"] = "Der Hangar";
+	L["The Quarry"] = "Der Steinbruch";
+	L["Contested Graveyards"] = "Umkämpfte Friedhöfe";--omitted from Gilneas
+	L["Horde Graveyard"] = "Horde Friedhof";--omitted from Gilneas
+	L["Alliance Graveyard"] = "Allianz Friedhof";
 
 	--Strand of the Ancients
 	L["Gates are marked with their colors."] = "Tore sind in ihren Farben eingezeichnet.";
@@ -199,6 +169,18 @@ if L then
 
 	-- Deepwind Gorge
 	L["Center Mine"] = "Mittlere Mine";
---@end-do-not-package@
---@localization(locale="deDE", format="lua_additive_table")@
+	
+	L["Shipwreck"] = "Schiffswrack"
+	L["Bonfire"] = "Feuer"
+	L["Tide Pools"] = "Gezeitenbecken"
+	L["Temple"] = "Tempel"
+	L["Tar Pits"] = "Teergruben"
+	L["Plunge"] = "Sturz"
+	L["Ridge"] = "Kamm"
+	L["Overlook"] = "Warte"
+	L["Crash Site"] = "Absturzstelle"
+	L["Waterfall"] = "Wasserfall"
+	L["Ruins"] = "Ruinen"
+	L["Tower"] = "Turm"
+
 end

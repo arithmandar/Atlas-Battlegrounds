@@ -1,69 +1,47 @@
--- $Id$
---[[
-
-	Atlas, a World of Warcraft instance map browser
-	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert at gmail dot com>
-	Copyright 2010 - Lothaer <lothayer at gmail dot com>, Atlas Team
-	Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail dot com>
-
-	This file is part of Atlas.
-
-	Atlas is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	Atlas is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with Atlas; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
---]]
+-----------------------------------------------------------------------
+-- Data for the mainline version of World of Warcraft.
+-----------------------------------------------------------------------
 local _G = getfenv(0)
-local select = select
-local GetBuildInfo = _G.GetBuildInfo
-
--- ----------------------------------------------------------------------------
--- AddOn namespace.
--- ----------------------------------------------------------------------------
-local FOLDER_NAME, private = ...
-
+local _, private = ...
 local LibStub = _G.LibStub
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
+
+local Client = Atlas.Client
+
+if not Client.isRetail then
+	return
+end
 
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
 
-local db = {}
-private.db = db
+local data = {}
+private.data = data
 
-local BLUE = "|cff6666ff"
-local GREN = "|cff66cc33"
-local LBLU = "|cff33cccc"
-local _RED = "|cffcc3333"
-local ORNG = "|cffcc9933"
-local PINK = "|ccfcc33cc"
-local PURP = "|cff9900ff"
-local WHIT = "|cffffffff"
-local YLOW = "|cffcccc33"
-local INDENT = "      "
-local BULLET = " - "
+local constants = private.constants
+local labelcolors = constants.colors.labels
+local BLUE = labelcolors.BLUE
+local GREN = labelcolors.GREN
+local LBLU = labelcolors.LBLU
+local _RED = labelcolors._RED
+local ORNG = labelcolors.ORNG
+local PINK = labelcolors.PINK
+local PURP = labelcolors.PURP
+local WHIT = labelcolors.WHIT
+local YLOW = labelcolors.YLOW
+local INDENT = labelcolors.INDENT
+local BULLET = labelcolors.BULLET
 
-db.category = L[private.category]
 
-
-db.maps = {
+data.maps = {
 	AlteracValleyNorth = {
 		ZoneName = { BZ["Alterac Valley"]..ALC["L-Parenthesis"]..ALC["North"]..ALC["Comma"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 		Location = { BZ["Alterac Mountains"] },
-		LevelRange = "51-60",
-		PlayerLimit = { 40 },
+		LevelRange = "20-160"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
+		MinLevel = "20",
+		PlayerLimit = {40},
 		Acronym = L["AV"],
 		WorldMapID = 91,
 		Faction = "Alliance",
@@ -117,8 +95,9 @@ db.maps = {
 	AlteracValleySouth = {
 		ZoneName = { BZ["Alterac Valley"]..ALC["L-Parenthesis"]..ALC["South"]..ALC["Comma"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 		Location = { BZ["Hillsbrad Foothills"] },
-		LevelRange = "51-60",
-		PlayerLimit = { 40 },
+		LevelRange = "20-160"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
+		MinLevel = "20",
+		PlayerLimit = {40},
 		Acronym = L["AV"],
 		WorldMapID = 91,
 		Faction = "Horde",
@@ -155,8 +134,9 @@ db.maps = {
 	ArathiBasin = {
 		ZoneName = { BZ["Arathi Basin"] },
 		Location = { BZ["Arathi Highlands"] },
-		LevelRange = "20-60",
-		PlayerLimit = { 15 },
+		LevelRange = "10-120"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
+		MinLevel = "10",
+		PlayerLimit = {15},
 		Acronym = L["AB"],
 		WorldMapID = 93,
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["The League of Arathor"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
@@ -172,14 +152,26 @@ db.maps = {
 	WarsongGulch = {
 		ZoneName = { BZ["Warsong Gulch"] },
 		Location = { BZ["Ashenvale"]..ALC["Slash"]..BZ["Northern Barrens"] },
-		LevelRange = "10-60",
-		PlayerLimit = { 10 },
+		LevelRange = "10-120"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
+		MinLevel = "10",
+		PlayerLimit = {10},
 		Acronym = L["WSG"],
 		WorldMapID = 92,
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["Silverwing Sentinels"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["Warsong Outriders"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 		{ BLUE.."A) "..BZ["Silverwing Hold"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10001 },
 		{ BLUE.."B) "..BZ["Warsong Lumber Mill"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10002 },
+	},
+	SilithystMustFlow = {
+		ZoneName = { BZ["Silithus"]..ALC["Hyphen"]..L["The Silithyst Must Flow"] },
+		Location = { BZ["Silithus"] },
+		LevelRange = "55-85",
+		MinLevel = "55",
+		WorldMapID = 81,
+		{ ORNG..PVP..ALC["Colon"]..L["The Silithyst Must Flow"] },
+		{ BLUE.."A) "..BZ["Cenarion Hold"], 10001 },
+		{ BLUE.."B) "..L["Alliance's Camp"], 10002 },
+		{ BLUE.."C) "..L["Horde's Camp"], 10003 },
 	},
 	EyeOfTheStorm = {
 		ZoneName = { BZ["Eye of the Storm"] },
@@ -320,9 +312,139 @@ db.maps = {
 		{ ORNG.."4) "..L["Southeast Graveyard"], 10015 },
 		{ ORNG.."5) "..L["Southwest Graveyard"], 10016 },
 	},
+	TheBattleForGilneas = {
+		ZoneName = { BZ["Gilneas"]..ALC["Hyphen"]..BZ["The Battle for Gilneas"] },
+		Location = { BZ["Gilneas"] },
+		LevelRange = "25-120"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
+		PlayerLimit = {10},
+		WorldMapID = 275,
+		{ BLUE.."A) "..BZ["Gilnean Stronghold"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10001 },
+		{ ORNG..INDENT..L["Alliance Graveyard"] },
+		{ BLUE.."B) "..BZ["Horde Landing"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10002 },
+		{ GREN.."1) "..BZ["Mines"], 10003 },
+		{ GREN.."2) "..BZ["Lighthouse"], 10004 },
+		{ GREN.."3) "..BZ["Waterworks"], 10005 },
+		{ ORNG.."1) "..L["Horde Graveyard"], 10006 },
+		{ ORNG.."2) "..L["Contested Graveyards"], 10007 },
+	},
+	TolBarad = {
+		ZoneName = { BZ["Tol Barad"] },
+		Location = { BZ["Tol Barad"] },
+		LevelRange = "80-85",
+		WorldMapID = 244,
+		{ ORNG..REPUTATION..ALC["Colon"]..BF["Baradin's Wardens"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+		{ ORNG..REPUTATION..ALC["Colon"]..BF["Hellscream's Reach"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+		{ BLUE.."A) "..L["Attackers"], 10001 },
+		{ BLUE.."B) "..BZ["Baradin Hold"], 10002 },
+		{ GREN..INDENT..FACTION_ALLIANCE },
+		{ GREN..INDENT..BULLET..L["Sergeant Parker <Baradin's Wardens>"]},
+		{ GREN..INDENT..BULLET..L["2nd Lieutenant Wansworth <Baradin's Wardens>"]},
+		{ GREN..INDENT..BULLET..L["Commander Stevens <Baradin's Wardens>"]},
+		{ GREN..INDENT..BULLET..L["Marshal Fallows <Baradin's Wardens>"]},
+		{ GREN..INDENT..FACTION_HORDE },
+		{ GREN..INDENT..BULLET..L["Commander Zanoth <Hellscream's Reach>"] },
+		{ GREN..INDENT..BULLET..L["Drillmaster Razgoth <Hellscream's Reach>"] },
+		{ GREN..INDENT..BULLET..L["Private Garnoth <Hellscream's Reach>"] },
+		{ GREN..INDENT..BULLET..L["Staff Sergeant Lazgar <Hellscream's Reach>"] },
+		{ GREN.."1) "..BZ["Ironclad Garrison"], 10003 },
+		{ GREN.."2) "..BZ["Warden's Vigil"], 10004 },
+		{ GREN.."3) "..BZ["Slagworks"], 10005 },
+		{ GREN.."1') "..ALC["Meeting Stone"], 10006 },
+		{ _RED.."1) "..BZ["West Spire"], 10007 },
+		{ _RED.."2) "..BZ["East Spire"], 10008 },
+		{ _RED.."3) "..BZ["South Spire"], 10009 },
+		{ ORNG.."1) "..ALC["Graveyard"], 10010 },
+		{ ORNG.."2) "..BZ["Cursed Depths"], 10011 },
+		{ ORNG.."3) "..BZ["The Hole"], 10012 },
+		{ ORNG.."4) "..BZ["D-Block"], 10013 },
+	},
+	TwinPeaks = {
+		ZoneName = { BZ["Twin Peaks"] },
+		Location = { BZ["Twilight Highlands"] },
+		LevelRange = "30-120"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
+		WorldMapID = 206,
+		PlayerLimit = {10},
+		{ ORNG..REPUTATION..ALC["Colon"]..BF["Wildhammer Clan"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+		{ ORNG..REPUTATION..ALC["Colon"]..BF["Dragonmaw Clan"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+		{ BLUE.."A) "..L["Wildhammer Longhouse"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10001 },
+		{ BLUE.."B) "..L["Dragonmaw Clan Compound"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10002 },
+		{ ORNG.."1) "..L["Alliance Graveyard"], 10003 },
+		{ ORNG.."2) "..L["Horde Graveyard"], 10004 },
+	},
+	SilvershardMines = {
+		ZoneName = { BZ["Silvershard Mines"] },
+		Location = { BZ["Stranglethorn Vale"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+		LevelRange = "110-120",
+		MinLevel = "90",
+		PlayerLimit = {10},
+		WorldMapID = 423,
+		{ BLUE.."A) "..ALC["Start"]..ALC["Hyphen"]..FACTION_ALLIANCE, 10001 },
+		{ BLUE.."B) "..ALC["Start"]..ALC["Hyphen"]..FACTION_HORDE, 10002 },
+		{ GREN.."1) "..L["Mine Cart Spawn Point"], 10003 },
+		{ GREN.."2) "..L["Mine Cart Depot"], 10004 },
+	},
+	TempleofKotmogu = {
+		ZoneName = { BZ["Temple of Kotmogu"] },
+		Location = { BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
+		LevelRange = "110-120",
+		PlayerLimit = {10},
+		WorldMapID = 417,
+		{ BLUE.."A) "..ALC["Start"]..ALC["Hyphen"]..FACTION_ALLIANCE, 10001 },
+		{ BLUE.."B) "..ALC["Start"]..ALC["Hyphen"]..FACTION_HORDE, 10002 },
+		{ GREN.."1) "..L["Orb of Power"], 10003 },
+		{ GREN.."2) "..L["Center Point (Maximum Points)"], 10004 },
+	},
+	DeepwindGorge = {
+		ZoneName = { BZ["Deepwind Gorge"] },
+		Location = { BZ["Valley of the Four Winds"]..ALC["Comma"]..BZ["Pandaria"] },
+		LevelRange = "110-120",
+		PlayerLimit = {15},
+		WorldMapID = 519,
+		{ BLUE.."A) "..ALC["Start"]..ALC["Hyphen"]..FACTION_HORDE, 10001 },
+		{ BLUE.."B) "..ALC["Start"]..ALC["Hyphen"]..FACTION_ALLIANCE, 10002 },
+		{ GREN.."1) "..BZ["Pandaren Mine"], 10003 },
+		{ GREN.."2) "..L["Center Mine"], 10004 },
+		{ GREN.."3) "..BZ["Goblin Mine"], 10005 },
+	},
+	Ashran = {
+		ZoneName = { BZ["Ashran"] },
+		Location = { BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"] },
+		LevelRange = "20-120"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
+		PlayerLimit = {40},
+		WorldMapID = 588,
+		{ BLUE.."A) "..BZ["Warspear"]..ALC["Hyphen"]..FACTION_HORDE, 10001 },
+		{ BLUE.."B) "..BZ["Stormshield"]..ALC["Hyphen"]..FACTION_ALLIANCE, 10002 },
+		{ GREN.."1) "..BZ["Amphitheater of Annihilation"], 10003 },
+		{ GREN.."2) "..BZ["Emberfall Tower"], 10004 },
+		{ GREN.."3) "..BZ["Brute's Rise"], 10005 },
+		{ GREN.."4) "..BZ["The Dark Woods"], 10006 },
+		{ GREN.."5) "..BZ["Ring of Conquest"], 10007 },
+		{ GREN.."6) "..BZ["Seat of Kor'lok"], 10008 },
+		{ GREN.."7) "..BZ["Ashmaul Burial Grounds"], 10009 },
+		{ GREN.."8) "..BZ["Molten Quarry"], 10010 },
+	},
+	SeethingShore = {
+		ZoneName = { BZ["Seething Shore"] },
+		Location = { BZ["Seething Shore"]..ALC["Comma"]..BZ["Feralas"] },
+		LevelRange = "110-120",
+		PlayerLimit = {15},
+		WorldMapID = 907,
+		{ WHIT.." 1) "..L["Shipwreck"], 10001 },
+		{ WHIT.." 2) "..L["Bonfire"], 10002 },
+		{ WHIT.." 3) "..L["Tide Pools"], 10003 },
+		{ WHIT.." 4) "..L["Temple"], 10004 },
+		{ WHIT.." 5) "..L["Tar Pits"], 10005 },
+		{ WHIT.." 6) "..L["Plunge"], 10006 },
+		{ WHIT.." 7) "..L["Ridge"], 10007 },
+		{ WHIT.." 8) "..L["Overlook"], 10008 },
+		{ WHIT.." 9) "..L["Crash Site"], 10009 },
+		{ WHIT.." 10) "..L["Waterfall"], 10010 },
+		{ WHIT.." 11) "..L["Ruins"], 10011 },
+		{ WHIT.." 12) "..L["Tower"], 10012 },
+	},
 }
 
-db.coords = {
+data.coords = {
 	AlteracValleyNorth = {
 		{  "A", 10001, 368, 25 }, -- Entrance
 		{  "B", 10002, 166, 65 }, -- Dun Baldar
@@ -379,6 +501,11 @@ db.coords = {
 	WarsongGulch = {
 		{ "A", 10001, 238, 96 }, -- Silverwing Hold
 		{ "B", 10002, 256, 365 }, -- Warsong Lumber Mill
+	},
+	SilithystMustFlow = {
+		{ "A", 10001, 289, 173 }, -- Cenarion Hold
+		{ "B", 10002, 153, 242 }, -- Alliance's Camp
+		{ "C", 10003, 291, 329 }, -- Horde's Camp
 	},
 	EyeOfTheStorm = {
 		{ "A", 10001, 238, 82 }, -- Entrance
@@ -476,6 +603,75 @@ db.coords = {
 		{ "4", 10015, 350, 385, 695, 557, "Orange" }, -- Southeast Graveyard
 		{ "5", 10016, 131, 385, 323, 561, "Orange" }, -- Southwest Graveyard
 	},
+	TheBattleForGilneas = {
+		{ "A", 10001, 200, 409 }, -- Gilnean Stronghold
+		{ "B", 10002, 381, 131 }, -- Horde Landing
+		{ "1", 10003, 414, 217 }, -- Mines
+		{ "2", 10004, 228, 340 }, -- Lighthouse
+		{ "3", 10005, 404, 362 }, -- Waterworks
+		{ "1", 10006, 419, 154 }, -- Horde Graveyard
+		{ "2", 10007, 446, 235 }, -- Contested Graveyards
+		{ "2", 10007, 203, 333 }, -- Contested Graveyards
+		{ "2", 10007, 375, 424 }, -- Contested Graveyards
+	},
+	TolBarad = {
+		{  "A", 10001, 178, 117 }, -- Attackers
+		{  "B", 10002, 251, 274 }, -- Baradin Hold
+		{  "1", 10003, 252, 151 }, -- Ironclad Garrison
+		{  "2", 10004, 129, 367 }, -- Warden's Vigil
+		{  "3", 10005, 374, 361 }, -- Slagworks
+		{ "1'", 10006, 214, 252 }, -- Meeting Stone
+		{  "1", 10007, 79, 171 }, -- West Spire
+		{  "2", 10008, 409, 196 }, -- East Spire
+		{  "3", 10009, 261, 410 }, -- South Spire
+		{  "1", 10010, 215, 182 }, -- Graveyard
+		{  "1", 10010, 186, 385 }, -- Graveyard
+		{  "1", 10010, 390, 311 }, -- Graveyard
+		{  "2", 10011, 189, 221 }, -- Cursed Depths
+		{  "3", 10012, 209, 362 }, -- The Hole
+		{  "4", 10013, 320, 279 }, -- D-Block
+	},
+	TwinPeaks = {
+		{ "A", 10001, 298, 118 }, -- Wildhammer Longhouse
+		{ "B", 10002, 230, 366 }, -- Dragonmaw Clan Compound
+		{ "1", 10003, 179, 221 }, -- Alliance Graveyard
+		{ "2", 10004, 319, 252 }, -- Horde Graveyard
+	},
+	SilvershardMines = {
+		{ "A", 10001, 365, 249 }, -- Start
+		{ "B", 10002, 306, 387 }, -- Start
+		{ "1", 10003, 329, 314 }, -- Mine Cart Spawn Point
+		{ "2", 10004, 138, 288 }, -- Mine Cart Depot
+		{ "2", 10004, 240, 425 }, -- Mine Cart Depot
+		{ "2", 10004, 445, 201 }, -- Mine Cart Depot
+		{ "2", 10004, 402, 392 }, -- Mine Cart Depot
+	},
+	TempleofKotmogu = {
+		{ "A", 10001, 388, 248 }, -- Start
+		{ "B", 10002, 99, 250 }, -- Start
+		{ "1", 10003, 190, 206 }, -- Orb of Power
+		{ "1", 10003, 297, 206 }, -- Orb of Power
+		{ "1", 10003, 190, 292 }, -- Orb of Power
+		{ "1", 10003, 297, 292 }, -- Orb of Power
+		{ "2", 10004, 246, 248 }, -- Center Point (Maximum Points)
+	},
+	DeepwindGorge = {
+		{ "A", 10001, 100, 209 }, -- Start
+		{ "B", 10002, 408, 282 }, -- Start
+		{ "1", 10003, 291, 135 }, -- Pandaren Mine
+		{ "2", 10004, 254, 247 }, -- Center Mine
+		{ "3", 10005, 220, 357 }, -- Goblin Mine
+	},
+	Ashran = {
+		{ "A", 10001, 202, 54 }, -- Warspear
+		{ "B", 10002, 176, 441 }, -- Stormshield
+		{ "1", 10003, 148, 182 }, -- Amphitheater of Annihilation
+		{ "2", 10004, 241, 189 }, -- Emberfall Tower
+		{ "3", 10005, 323, 144 }, -- Brute's Rise
+		{ "4", 10006, 308, 205 }, -- The Dark Woods
+		{ "5", 10007, 124, 246 }, -- Ring of Conquest
+		{ "6", 10008, 281, 246 }, -- Seat of Kor'lok
+		{ "7", 10009, 154, 303 }, -- Ashmaul Burial Grounds
+		{ "8", 10010, 298, 338 }, -- Molten Quarry
+	},
 }
-
-Atlas:RegisterPlugin(private.addon_name, private.db.category, private.db.maps, private.db.coords)
