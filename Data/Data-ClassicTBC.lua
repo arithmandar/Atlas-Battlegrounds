@@ -8,7 +8,7 @@ local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 
 local Client = Atlas.Client
 
-if not Client.isAnniversaryTBC then
+if not Client.isTBCClassic then
 	return
 end
 
@@ -42,7 +42,7 @@ data.maps = {
 		LevelRange = "51-60",
 		PlayerLimit = { 40 },
 		Acronym = L["AV"],
-		WorldMapID = 91,
+		WorldMapID = 1459,
 		Faction = "Alliance",
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["Stormpike Guard"] },
 		{ BLUE.."A) "..ALC["Entrance"], 10001 },
@@ -97,7 +97,7 @@ data.maps = {
 		LevelRange = "51-60",
 		PlayerLimit = { 40 },
 		Acronym = L["AV"],
-		WorldMapID = 91,
+		WorldMapID = 1459,
 		Faction = "Horde",
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["Frostwolf Clan"] },
 		{ BLUE.."A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10001 },
@@ -135,7 +135,7 @@ data.maps = {
 		LevelRange = "20-60",
 		PlayerLimit = { 15 },
 		Acronym = L["AB"],
-		WorldMapID = 93,
+		WorldMapID = 1461,
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["The League of Arathor"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["The Defilers"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 		{ BLUE.."A) "..BZ["Trollbane Hall"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10001 },
@@ -152,7 +152,7 @@ data.maps = {
 		LevelRange = "10-60",
 		PlayerLimit = { 10 },
 		Acronym = L["WSG"],
-		WorldMapID = 92,
+		WorldMapID = 1460,
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["Silverwing Sentinels"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 		{ ORNG..REPUTATION..ALC["Colon"]..BF["Warsong Outriders"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 		{ BLUE.."A) "..BZ["Silverwing Hold"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10001 },
@@ -164,7 +164,7 @@ data.maps = {
 		LevelRange = "15-120"..ALC["L-Parenthesis"]..L["Span of 5"]..ALC["R-Parenthesis"]..ALC["Slash"].."120",
 		PlayerLimit = {15},
 		Acronym = L["EotS"],
-		WorldMapID = 112,
+		WorldMapID = 1956,
 		{ BLUE.."A) "..ALC["Entrance"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10001 },
 		{ BLUE.."B) "..ALC["Entrance"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10002 },
 		{ _RED.."1) "..L["Flag"], 10003 },
@@ -179,7 +179,7 @@ data.maps = {
 		Location = { BZ["Nagrand"] },
 		LevelRange = "64-85",
 		MinLevel = "64",
-		WorldMapID = 107,
+		WorldMapID = 1951,
 		{ ORNG..PVP..ALC["Colon"]..BZ["Halaa"] },
 		{ GREN.."1) "..BZ["Halaa"], 10001 },
 		{ GREN..INDENT..FACTION_ALLIANCE },
@@ -199,7 +199,7 @@ data.maps = {
 		Location = { BZ["Hellfire Peninsula"] },
 		LevelRange = "58-85",
 		MinLevel = "58",
-		WorldMapID = 100,
+		WorldMapID = 1944,
 		{ ORNG..PVP..ALC["Colon"]..L["Hellfire Fortifications"] },
 		{ GREN.."1) "..BZ["The Stadium"], 10001 },
 		{ GREN.."2) "..BZ["The Overlook"], 10002 },
@@ -210,7 +210,7 @@ data.maps = {
 		Location = { BZ["The Bone Wastes"]..ALC["Comma"]..BZ["Terokkar Forest"] },
 		LevelRange = "62-85",
 		MinLevel = "62",
-		WorldMapID = 108,
+		WorldMapID = 1952,
 		{ ORNG..PVP..ALC["Colon"]..BZ["Auchindoun"].." "..L["Spirit Towers"] },
 		{ GREN.."1) "..L["Spirit Towers"], 10001 },
 	},
@@ -219,7 +219,7 @@ data.maps = {
 		Location = { BZ["Zangarmarsh"] },
 		LevelRange = "60-85",
 		MinLevel = "60",
-		WorldMapID = 102,
+		WorldMapID = 1946,
 		{ ORNG..PVP..ALC["Colon"]..BZ["Twin Spire Ruins"] },
 		{ GREN.."1) "..L["West Beacon"], 10001 },
 		{ GREN.."2) "..L["East Beacon"], 10002 },

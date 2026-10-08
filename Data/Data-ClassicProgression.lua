@@ -167,6 +167,7 @@ data.maps = {
 		--Location = { BZ["Silithus"] },
 		LevelRange = "55-85",
 		MinLevel = "55",
+		WorldMapID = 81,
 		{ ORNG.."PvP: "..L["The Silithyst Must Flow"] },
 		{ BLUE.."A) "..BZ["Cenarion Hold"] },
 		{ BLUE.."B) "..L["Alliance's Camp"] },
