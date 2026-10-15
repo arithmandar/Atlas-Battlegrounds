@@ -9,6 +9,7 @@ local GetAddOnInfo = C_AddOns.GetAddOnInfo
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
+---@type AtlasAddon
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
